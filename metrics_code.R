@@ -25,7 +25,17 @@ metrics_df <- data.frame(year = c("FY26"),
                                     "Mar",
                                     "Apr"),
                                    ordered = TRUE),
-                         n_projects = cumsum(c(1,
+                         Raw = c(1,
+                                                   7,
+                                                   4,
+                                                   6,
+                                                   0,
+                                                   4,
+                                                   7,
+                                                   12,
+                                                   14,
+                                                   16),
+                         Cumulative = cumsum(c(1,
                                              7,
                                              4,
                                              6,
@@ -35,18 +45,20 @@ metrics_df <- data.frame(year = c("FY26"),
                                              12,
                                              14,
                                              16)))
+metrics_df_l <- tidyr::pivot_longer(metrics_df, cols = c(-year, -date))
+
 n_proj_p <- 
-ggplot(data= metrics_df, aes(x = date, y = n_projects, 
-                             color = year))+
+ggplot(data= metrics_df_l, aes(x = date, y = value, 
+                             color = name))+
   geom_point(size = 4)+
-  scale_color_manual(values ="#C00000")+
-  geom_line(aes(group = 1))+
+  scale_color_manual(values = c("#C00000", "#00A"))+
+  geom_line(aes(group = name))+
   theme_bw(base_size = 18)+
   labs(x = "Month", 
        y = "Number of Projects (Cumulative)", 
        title = "Number of Full Consulting Projects - FY26", 
         subtitle = "For FY 2026")+
-  theme(legend.position = "none")+
+  theme(legend.position = c(0.2, 0.8))+
   coord_fixed(ratio = 1/10)
 
 
