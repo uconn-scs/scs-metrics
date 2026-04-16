@@ -51,14 +51,15 @@ n_proj_p <-
 ggplot(data= metrics_df_l, aes(x = date, y = value, 
                              color = name))+
   geom_point(size = 4)+
-  scale_color_manual(values = c("#C00000", "#00A"))+
+  scale_color_manual("Curve", values = c("#C00000", "#00A"))+
   geom_line(aes(group = name))+
   theme_bw(base_size = 18)+
   labs(x = "Month", 
-       y = "Number of Projects (Cumulative)", 
+       y = "Number of Projects", 
        title = "Number of Full Consulting Projects - FY26", 
         subtitle = "For FY 2026")+
-  theme(legend.position = c(0.2, 0.8))+
+  theme(legend.position = c(0.2, 0.8), 
+        legend.background =  element_rect(color = "black"))+
   coord_fixed(ratio = 1/10)
 
 
