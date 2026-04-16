@@ -31,4 +31,4 @@ vignettes/*.pdf
 po/*~
 # RStudio Connect folder
 rsconnect/
-metrics_code.R
+
