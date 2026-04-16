@@ -25,7 +25,6 @@ metrics_df <- data.frame(year = c("FY26"),
                                     "Mar",
                                     "Apr"),
                                    ordered = TRUE),
-                                  
                          n_projects = cumsum(c(1,
                                              7,
                                              4,
@@ -49,6 +48,7 @@ ggplot(data= metrics_df, aes(x = date, y = n_projects,
         subtitle = "For FY 2026")+
   theme(legend.position = "none")+
   coord_fixed(ratio = 1/10)
+
 
 p <- ggplotly(n_proj_p)
 
