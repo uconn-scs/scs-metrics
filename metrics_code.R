@@ -2,8 +2,28 @@
 library(plotly)
 library(htmlwidgets)
 
-metrics_df <- data.frame(date = 1:10, 
-                         n_projects = cumsum(1:10))
+metrics_df <- data.frame(year = c(FY26),
+                         date = c("Jul", 
+                                  "Aug",
+                                  "Sep",
+                                  "Oct",
+                                  "Nov",
+                                  "Dec",
+                                  "Jan",
+                                  "Feb",
+                                  "Mar",
+                                  "Apr"),
+                                  
+                         n_projects = cumsum(c(1,
+                                             7,
+                                             4,
+                                             6,
+                                             0,
+                                             4,
+                                             7,
+                                             12,
+                                             14,
+                                             16)))
 
 p <- plot_ly(
   data = metrics_df,
